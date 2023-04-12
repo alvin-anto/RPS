@@ -1,0 +1,135 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+p {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.move-text {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12.5px;
+}
+
+.game-img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
+    border: 2.5px solid #333;
+    padding: 6.25px;
+    margin: 5px 2.5px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-img:hover {
+    background-color: #333;
+    border-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.js-result,
+.js-moves,
+.js-score {
+    font-size: 22.5px;
+    font-weight: 400;
+    margin-bottom: 12.5px;
+    animation: fadeIn 1s linear;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 500px;
+}
+
+.game-content {
+    max-width: 500px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s linear;
+}
+
+.move-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.move-display img {
+    width: 87.5px;
+    height: 87.5px;
+    object-fit: contain;
+    border-radius: 7.5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.instructions{      
+    font-size: 15px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.flip {
+    perspective: 1000px;
+}
+
+.flip .game-content {
+    transform-style: preserve-3d;
+    transition: 0.8s;
+}
+
+.flip .game-content.flipping {
+    transform-origin: bottom right;
+    transform: rotateY(-180deg) rotateX(180deg);
+}
+
+.hidden {
+    display: none;
+}
+
+.start-button,
+.continue-button,
+.start-over-button,
+.reset-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: 0.3s;
+    background-color: #84fab0;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+}
+
+.reset-button {
+background-color: #f77676;
+}
