@@ -32,33 +32,33 @@ function playRound(playerSelection) {
 
 function computerPlay() {
     const choices = ['rock',
-    'paper',
-    'scissors'
-];
-const randomIndex = Math.floor(Math.random() * choices.length);
-return choices[randomIndex];
+        'paper',
+        'scissors'
+    ];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
 
 function getResult(playerSelection, computerSelection) {
-if (playerSelection === computerSelection) {
-    return 'draw';
-}
+    if (playerSelection === computerSelection) {
+        return 'draw';
+    }
 
-if (
-    (playerSelection === 'rock' && computerSelection === 'scissors') ||
-    (playerSelection === 'paper' && computerSelection === 'rock') ||
-    (playerSelection === 'scissors' && computerSelection === 'paper')
-) {
-    return 'win';
-}
+    if (
+        (playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper')
+    ) {
+        return 'win';
+    }
 
-return 'lose';
+    return 'lose';
 }
 
 function displayMoves(playerSelection, computerSelection) {
-document.querySelector('.js-player-move').src = getMoveImage(playerSelection);
-document.querySelector('.js-computer-move').src = getMoveImage(computerSelection);
-document.querySelector('.move-display').classList.remove('hidden');
+    document.querySelector('.js-player-move').src = getMoveImage(playerSelection);
+    document.querySelector('.js-computer-move').src = getMoveImage(computerSelection);
+    document.querySelector('.move-display').classList.remove('hidden');
 }
 
 function getMoveImage(move) {
@@ -72,46 +72,46 @@ function getMoveImage(move) {
 }
 
 function displayResult(result) {
-let resultText;
+    let resultText;
+    document.querySelector('.js-result').classList.remove('hidden');
+    if (result === 'win') {
+        resultText = 'You won!';
+    } else if (result === 'lose') {
+        resultText = 'You lost!';
+    } else {
+        resultText = "It's a draw!";
+    }
 
-if (result === 'win') {
-    resultText = 'You won!';
-} else if (result === 'lose') {
-    resultText = 'You lost!';
-} else {
-    resultText = "It's a draw!";
-}
-
-document.querySelector('.js-result').textContent = resultText;
+    document.querySelector('.js-result').textContent = resultText;
 }
 
 function updateScore(result) {
-let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, draws: 0 };
+    let score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, draws: 0 };
 
-if (result === 'win') {
-    score.wins++;
-} else if (result === 'lose') {
-    score.losses++;
-} else {
-    score.draws++;
-}
+    if (result === 'win') {
+        score.wins++;
+    } else if (result === 'lose') {
+        score.losses++;
+    } else {
+        score.draws++;
+    }
 
-localStorage.setItem('score', JSON.stringify(score));
+    localStorage.setItem('score', JSON.stringify(score));
 }
 
 function displayScore() {
-const score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, draws: 0 };
-document.querySelector('.js-score').textContent = `Wins: ${score.wins} | Losses: ${score.losses} | Draws: ${score.draws}`;
+    const score = JSON.parse(localStorage.getItem('score')) || { wins: 0, losses: 0, draws: 0 };
+    document.querySelector('.js-score').textContent = `Wins: ${score.wins} | Losses: ${score.losses} | Draws: ${score.draws}`;
 }
 
 function resetScore() {
-const score = { wins: 0, losses: 0, draws: 0 };
-localStorage.removeItem('score');
-document.querySelector('.move-display').classList.add('hidden');
-document.querySelector('.js-result').classList.add('hidden');
-displayScore();
+    const score = { wins: 0, losses: 0, draws: 0 };
+    localStorage.removeItem('score');
+    document.querySelector('.move-display').classList.add('hidden');
+    document.querySelector('.js-result').classList.add('hidden');
+    displayScore();
 
-let gameContent = document.querySelector('.game-content');
+    let gameContent = document.querySelector('.game-content');
     gameContent.classList.add('flipping');
     setTimeout(() => {
         gameContent.classList.remove('flipping');
