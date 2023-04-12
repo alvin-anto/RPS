@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Rock Paper Scissors
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="flip">
+
+    <div class="game-content">
+        <p>
+            Rock Paper Scissors
+        </p>
+
+        <button class="start-button" onclick="showGame();" id="start-button">
+            Start Game
+        </button>
+        <button class="continue-button hidden" onclick="showGame();" id="continue-button">
+            Continue
+        </button>
+        <button class="start-over-button hidden" onclick="startOver();" id="start-over-button">
+            Start Over
+        </button>
+
+        <p class='instructions hidden'>
+            Choose a move by clicking on the images below. The computer will also choose a move, and the winner will be decided based on the classic Rock Paper Scissors rules.
+        </p>
+
+        <div class="game-buttons hidden">
+            <img class="game-img" src="https://em-content.zobj.net/source/microsoft-teams/337/raised-fist_270a.png" alt="Rock" onclick="playRound('rock')">
+            <img class="game-img" src="https://em-content.zobj.net/source/microsoft-teams/337/raised-hand_270b.png" alt="Paper" onclick="playRound('paper')">
+            <img class="game-img" src="https://em-content.zobj.net/source/microsoft-teams/337/victory-hand_270c-fe0f.png" alt="Scissors" onclick="playRound('scissors')">
+        </div>
+
+        <p class='js-result hidden'></p>
+
+        <div class="move-display hidden">
+            <div>
+                <p class="move-text">Your Move:</p>
+                <img class="js-player-move" src="">
+            </div>
+            <div>
+                <p class="move-text">Computer's Move:</p>
+                <img class="js-computer-move" src="">
+            </div>
+        </div>
+
+        <p class='js-score hidden'></p>
+
+        <button class="reset-button hidden" onclick="resetScore();" id="reset-score-button">
+            Reset Score
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
